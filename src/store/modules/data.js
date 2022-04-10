@@ -5,8 +5,28 @@ const usersStore = {
   state: {
     list: {
       1: {
-        name: "Dima",
-        age: 46,
+        type: 'OUTCOME',
+        value: 70,
+        comment: 'store out comment',
+        id: 1,
+      },
+      2: {
+        type: 'INCOME',
+        value: 80,
+        comment: 'store comment',
+        id: 2,
+      },
+      3: {
+        type: 'INCOME',
+        value: 50,
+        comment: 'store comment',
+        id: 3,
+      },
+      4: {
+        type: 'OUTCOME',
+        value: 10,
+        comment: 'store out comment',
+        id: 4,
       },
     },
   },

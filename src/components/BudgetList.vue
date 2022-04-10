@@ -8,6 +8,9 @@
       </select>
       <template v-if="!isEmpty">
         <BudgetListItem :list="list" :sel="sel" @deleteItem="onDeleteItem"/>
+        {{ userList }}
+        <p>------</p>
+        {{ list }}
       </template>
       <el-alert v-else type="info" :title="emptyTitle" :closable="false" />
     </el-card>
@@ -27,6 +30,7 @@
 
 <script>
 import BudgetListItem from "@/components/BudgetListItem";
+import { mapGetters } from "vuex";
 export default {
   name: 'BudgetList',
   components: {
@@ -57,6 +61,7 @@ export default {
     isEmpty() {
       return !Object.keys(this.list).length;
     },
+    ...mapGetters("data", ["userList"]),
   },
   methods: {
     onDeleteItem(id) {
