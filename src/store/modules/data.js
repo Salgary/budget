@@ -24,7 +24,7 @@ const usersStore = {
       },
       4: {
         type: 'OUTCOME',
-        value: 10,
+        value: 50,
         comment: 'store out comment',
         id: 4,
       },
@@ -32,6 +32,20 @@ const usersStore = {
   },
   getters: {
     userList: ({ list }) => Object.values(list),
+
+    totalBalanceStore: (userList) => {
+      let valOfObj = userList;
+      console.log(valOfObj);
+
+      let balance = valOfObj.reduce(function(acc, item)
+        {console.log(item); if (item.type == "INCOME") {return acc + item.value}
+      else if (item.type == "OUTCOME") {return acc - item.value}},0);
+
+
+      console.log(balance);
+      return balance;
+    },
+
   },
   mutations: {
     ADD_USER(state, user) {

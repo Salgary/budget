@@ -2,8 +2,9 @@
   <div id="app">
     <Form @submitForm="onFormSubmit"/>
     <TotalBalance :total="totalBalance"/>
-    <BudgetList :list="list"/>
+    <BudgetList :list="userList"/>
     {{ userList }}
+    <!-- {{ totalBalanceStore }} -->
   </div>
 </template>
 

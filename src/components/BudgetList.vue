@@ -10,7 +10,7 @@
         <BudgetListItem :list="userList" :sel="sel" @deleteItem="onDeleteItem"/>
         {{ userList }}
         <p>------</p>
-        {{ list }}
+        {{ Object.values(list) }}
       </template>
       <el-alert v-else type="info" :title="emptyTitle" :closable="false" />
     </el-card>
@@ -38,7 +38,7 @@ export default {
   },
   props: {
     list: {
-      type: Object,
+      type: Array,
       default: () => ({
 
       })

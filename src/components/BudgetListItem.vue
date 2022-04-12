@@ -20,7 +20,7 @@ export default {
   // props: ['list', 'sel'],
   props: {
     list: {
-      type: Object,
+      type: Array,
       default: () => ({
 
       })
