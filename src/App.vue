@@ -3,6 +3,7 @@
     <Form @submitForm="onFormSubmit"/>
     <TotalBalance :total="totalBalance"/>
     <BudgetList :list="list"/>
+    {{ userList }}
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import BudgetList from "@/components/BudgetList";
 import TotalBalance from "@/components/TotalBalance";
 import Form from "@/components/Form";
+import { mapGetters } from "vuex";
 
 export default {
   name: 'App',
@@ -22,7 +24,7 @@ export default {
     list: {
       1: {
         type: 'OUTCOME',
-        value: 70,
+        value: 70 ,
         comment: 'some out comment',
         id: 1,
       },
@@ -61,6 +63,7 @@ export default {
     },
   }),
   computed: {
+    ...mapGetters("data", ["userList"]),
     totalBalance() {
       let valOfObj = Object.values(this.list);
       console.log(valOfObj);

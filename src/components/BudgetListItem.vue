@@ -17,6 +17,7 @@
 <script>
 export default {
   name: "BudgetListItem",
+  // props: ['list', 'sel'],
   props: {
     list: {
       type: Object,

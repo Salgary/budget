@@ -7,7 +7,7 @@
       <option>Saldo</option>
       </select>
       <template v-if="!isEmpty">
-        <BudgetListItem :list="list" :sel="sel" @deleteItem="onDeleteItem"/>
+        <BudgetListItem :list="userList" :sel="sel" @deleteItem="onDeleteItem"/>
         {{ userList }}
         <p>------</p>
         {{ list }}
@@ -55,7 +55,15 @@ export default {
     emptyTitle: 'Empty List',
     dialogVisible: false,
     id: '',
-    sel: 0
+    sel: 0,
+    list1: {
+      1: {
+        type: 'OUTCOME',
+        value: 100 ,
+        comment: 'some out comment',
+        id: 1,
+      },
+    }
   }),
   computed: {
     isEmpty() {
