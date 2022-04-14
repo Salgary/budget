@@ -50,6 +50,7 @@ const usersStore = {
       console.log(state, item);
       // state.list[item.id] = item;
       Vue.set(state.list, item.id, item);
+      console.log(state.list);
     },
   },
   actions: {

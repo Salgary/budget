@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Form @submitForm="onFormSubmit"/>
+    <!-- <Form/> -->
     <TotalBalance :total="totalBalanceStore"/>
     <BudgetList :list="userList"/>
     {{ userList }}
@@ -14,6 +15,7 @@ import BudgetList from "@/components/BudgetList";
 import TotalBalance from "@/components/TotalBalance";
 import Form from "@/components/Form";
 import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: 'App',
@@ -81,13 +83,15 @@ export default {
     },
   },
   methods: {
+    ...mapActions('data', ['addNewItemStore']),
     onFormSubmit(data) {
       console.log(data);
-      const newObjItem = {
-        ...data,
-        id: String(Math.random()),
-      };
-      this.$set(this.list, newObjItem.id, newObjItem);
+      // const newObjItem = {
+      //   ...data,
+      //   id: String(Math.random()),
+      // };
+      // this.$set(this.list, newObjItem.id, newObjItem);
+      this.addNewItemStore(data);
       },
   }
 };
