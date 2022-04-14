@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <Form @submitForm="onFormSubmit"/>
-    <TotalBalance :total="totalBalance"/>
+    <TotalBalance :total="totalBalanceStore"/>
     <BudgetList :list="userList"/>
     {{ userList }}
-    <!-- {{ totalBalanceStore }} -->
+    ==============
+    {{ totalBalanceStore }}
   </div>
 </template>
 
@@ -64,7 +65,8 @@ export default {
     },
   }),
   computed: {
-    ...mapGetters("data", ["userList"]),
+    ...mapGetters("data", ["userList", "totalBalanceStore"]),
+
     totalBalance() {
       let valOfObj = Object.values(this.list);
       console.log(valOfObj);

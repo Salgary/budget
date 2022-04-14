@@ -32,17 +32,15 @@ const usersStore = {
   },
   getters: {
     userList: ({ list }) => Object.values(list),
+    userList1: ({ list }) => Object.values(list),
 
-    totalBalanceStore: (userList) => {
-      let valOfObj = userList;
-      console.log(valOfObj);
+    totalBalanceStore: ({ list }) => {
+      let valOfObj = Object.values(list);
 
       let balance = valOfObj.reduce(function(acc, item)
         {console.log(item); if (item.type == "INCOME") {return acc + item.value}
       else if (item.type == "OUTCOME") {return acc - item.value}},0);
 
-
-      console.log(balance);
       return balance;
     },
 
@@ -54,17 +52,23 @@ const usersStore = {
       Vue.set(state.list, user, user.id);
     },
   },
+  // actions: {
+  //   addNewUser({ commit }, user) {
+  //     console.log(commit);
+  //     console.log(user);
+  //     const newUser = {
+  //       ...user,
+  //       id: String(Math.random()),
+  //     };
+  //     console.log(newUser);
+  //     commit("ADD_USER", newUser);
+  //   },
+  // },
   actions: {
-    addNewUser({ commit }, user) {
-      console.log(commit);
-      console.log(user);
-      const newUser = {
-        ...user,
-        id: String(Math.random()),
-      };
-      console.log(newUser);
-      commit("ADD_USER", newUser);
-    },
+    addNewItemStore (context, newItem) {
+      console.log(context);
+      console.log(newItem);
+    }
   },
 };
 
