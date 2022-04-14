@@ -46,28 +46,18 @@ const usersStore = {
 
   },
   mutations: {
-    ADD_USER(state, user) {
-      console.log(state, user);
-      state.list[user.id] = user;
-      Vue.set(state.list, user, user.id);
+    ADD_BUDGET(state, item) {
+      console.log(state, item);
+      // state.list[item.id] = item;
+      Vue.set(state.list, item.id, item);
     },
   },
-  // actions: {
-  //   addNewUser({ commit }, user) {
-  //     console.log(commit);
-  //     console.log(user);
-  //     const newUser = {
-  //       ...user,
-  //       id: String(Math.random()),
-  //     };
-  //     console.log(newUser);
-  //     commit("ADD_USER", newUser);
-  //   },
-  // },
   actions: {
-    addNewItemStore (context, newItem) {
-      console.log(context);
-      console.log(newItem);
+    addNewItemStore ({ commit }, newItem) {
+      const newItemList = {...newItem, id: String(Math.random())};
+      console.log(commit);
+      console.log(newItemList);
+      commit("ADD_BUDGET", newItemList)
     }
   },
 };
