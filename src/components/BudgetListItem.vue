@@ -21,9 +21,7 @@ export default {
   props: {
     list: {
       type: Array,
-      default: () => ({
-
-      })
+      default: () => ({}),
     },
     sel: {
       type: Number,

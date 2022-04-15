@@ -8,9 +8,6 @@
       </select>
       <template v-if="!isEmpty">
         <BudgetListItem :list="userList" :sel="sel" @deleteItem="onDeleteItem"/>
-        {{ userList }}
-        <p>------</p>
-        {{ Object.values(list) }}
       </template>
       <el-alert v-else type="info" :title="emptyTitle" :closable="false" />
     </el-card>
@@ -39,15 +36,7 @@ export default {
   props: {
     list: {
       type: Array,
-      default: () => ({
-
-      })
-    },
-    listdebit: {
-      type: Object,
-      default: () => ({
-
-      })
+      default: () => ({}),
     },
   },
   data: () => ({
@@ -56,14 +45,6 @@ export default {
     dialogVisible: false,
     id: '',
     sel: 0,
-    list1: {
-      1: {
-        type: 'OUTCOME',
-        value: 100 ,
-        comment: 'some out comment',
-        id: 1,
-      },
-    }
   }),
   computed: {
     isEmpty() {
@@ -103,9 +84,9 @@ export default {
     margin: auto;
   }
   .budget-select  {
-    color: blueviolet;
+    color: gray;
     position: absolute;
-    left: 21%;
+    left: 47%;
     margin-block: auto;
     margin-bottom: 70px;
   }
